@@ -29,7 +29,7 @@ if receitas > 0:
 
 
     if percentual_despesas <= 50:
-        print("Você gastou ate metade da usa receita.")
+        print("Você gastou ate metade da sua receita.")
 
 
     elif percentual_despesas <= 80:
@@ -41,7 +41,7 @@ if receitas > 0:
 
 
 else:
-    print("Não foi possivel clacular: receita igual a zero.")
+    print("Não foi possivel calcular: receita igual a zero.")
 
 
 if saldo >= meta:
@@ -49,11 +49,11 @@ if saldo >= meta:
 
 
 elif saldo > 0:
-    print("você ficou no positivo, mas nao atingiu a meta.")
+    print("Você ficou no positivo, mas nao atingiu a meta.")
 
 
 elif saldo == 0:
-    print("voçe terminou o mês sem sobrar dinheiro.")
+    print("Você terminou o mês sem sobrar dinheiro.")
 
 
 else:
