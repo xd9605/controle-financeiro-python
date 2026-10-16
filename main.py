@@ -1,60 +1,85 @@
+
+# ==========================================
+# PROJETO: CONTROLE FINANCEIRO
+# ==========================================
+
 print("===== CONTROLE FINANCEIRO =====")
 
-nome = input("digite seu nome: ")
 
-receitas_texto = input("quanto dinheiro entrou? R$ ").replace(",", ".")
+# 1. ENTRADA DE DADOS
+
+nome = input("Digite seu nome: ")
+
+receitas_texto = input("Quanto dinheiro entrou? R$ ").replace(",", ".")
 receitas = float(receitas_texto)
 
-
-despesas_texto = input("quanto dinheiro saiu? R$ ").replace(",", ".")
+despesas_texto = input("Quanto dinheiro saiu? R$ ").replace(",", ".")
 despesas = float(despesas_texto)
 
 
-saldo = receitas - despesas 
+# 2. CÁLCULOS INICIAIS
 
+saldo = receitas - despesas
+meta = 1000
+
+
+# 3. RESUMO FINANCEIRO
 
 print("\n===== RESUMO FINANCEIRO =====")
 print(f"Usuário: {nome}")
 print(f"Receitas: R$ {receitas:.2f}")
-print(f"despesas: R$ {despesas:.2f}")
-print(f"saldo: R$ {saldo:.2f}")
+print(f"Despesas: R$ {despesas:.2f}")
+print(f"Saldo: R$ {saldo:.2f}")
 
-meta = 1000
+
+# 4. ANÁLISE DO PERCENTUAL DE DESPESAS
+
+print("\n===== ANÁLISE DE DESPESAS =====")
 
 if receitas > 0:
-    percentual_despesas =(despesas / receitas) * 100
+    percentual_despesas = (despesas / receitas) * 100
 
-
-    print(f"porcentagem da receita gasta: {percentual_despesas:.1f}%")
-
+    print(f"Porcentagem da receita gasta: "f"{percentual_despesas:.1f}%")
+    
 
     if percentual_despesas <= 50:
-        print("Você gastou ate metade da sua receita.")
-
+        print("Você gastou até metade da sua receita.")
 
     elif percentual_despesas <= 80:
         print("Atenção: você utilizou boa parte da sua receita.")
 
-
     else:
         print("Alerta: você utilizou mais de 80% da sua receita.")
 
-
 else:
-    print("Não foi possivel calcular: receita igual a zero.")
+    print("Não foi possível calcular os percentuais: receita igual a zero.")
 
+
+# 5. ANÁLISE DA ECONOMIA
+
+print("\n===== ANÁLISE DA ECONOMIA =====")
+
+if receitas > 0 and saldo > 0:
+    percentual_economia = (saldo / receitas) * 100
+
+    print(f"Porcentagem economizada: {percentual_economia:.1f}%")
+
+elif receitas > 0 and saldo <= 0:
+    print("Você não conseguiu economizar dinheiro neste mês.")
+
+
+# 6. VERIFICAÇÃO DA META FINANCEIRA
+
+print("\n===== META FINANCEIRA =====")
 
 if saldo >= meta:
-    print("Parabens! voce atingiu a sua meta financeira.")
-
+    print("Parabéns! Você atingiu sua meta financeira.")
 
 elif saldo > 0:
-    print("Você ficou no positivo, mas nao atingiu a meta.")
-
+    print("Você ficou no positivo, mas não atingiu a meta.")
 
 elif saldo == 0:
     print("Você terminou o mês sem sobrar dinheiro.")
 
-
 else:
-    print("Atençao! Suas despesas superaram suas receitas.")
+    print("Atenção! Suas despesas superaram suas receitas.")
